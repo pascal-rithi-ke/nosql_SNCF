@@ -13,7 +13,7 @@ export default class FoundObjectRepositories implements IFoundObjectRepositories
 		this.baseUrl = "https://data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-restitution&q=&rows=3"
 	}
 
-	async getFoundObject(): Promise<FoundObject[]> {
+	async getFoundObject(page: number): Promise<FoundObject[]> {
 		const foundObjectData = await this.httpClient.get(`${this.baseUrl}`)
     return FoundObjectMapper.toFoundObjectDomain(foundObjectData.records);
 	}
