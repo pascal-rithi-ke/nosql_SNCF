@@ -29,7 +29,7 @@ def departMontparnasse(ApiKey, count):
         data = response.json()
         '''for departure in data["departures"]:
             print(departure["display_informations"]["direction"])'''
-        return print(data['departures'])
+        return data
         #db.test.insert_one(data)
     else:
         print("Une erreur est survenue: {}".format(response.status_code))
@@ -58,10 +58,8 @@ def objetTrouve(ApiKey, count):
         data = response.json()
         '''for departure in data["departures"]:
             print(departure["display_informations"]["direction"])'''
-        return print(data)
+        return data
         #db.test.insert_one(data)
     else:
         print("Une erreur est survenue: {}".format(response.status_code))
         return None
-
-objetTrouve(ApiKey, 10)
