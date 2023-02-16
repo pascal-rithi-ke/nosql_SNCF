@@ -1,15 +1,12 @@
+import os
 from config.bdd_conf import *
 from config.api.sncf import *
-
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 ApiKey = os.getenv('ApiKey')
 CheckCollection = loadConfigDataBase()
-
-limitData = 10
 
 CollecMontParnasse = "MontParnasse"
 CollecObjectTrouve = "object_trouve"
@@ -18,27 +15,28 @@ CollectTGV = "tgv"
 
 def insertMontParnasseToMongo():
     # appel la bdd "SNCF" pour faire les traitements vers la base mongo
-    getDataQuery = departMontparnasse(ApiKey, limitData)
+    getDataQuery = departMontparnasse(ApiKey)
     # connection mongoDB
     DBMongo = loadConfigDataBase()
     # insert des données
     DBMongo[CollecMontParnasse].insert_many(getDataQuery['departures'])
 
 def insertObjetTrouveToMongo():
-    getDataQuery = objetTrouve(ApiKey, limitData)
+    getDataQuery = objetTrouve(ApiKey)
     DBMongo = loadConfigDataBase()
     DBMongo[CollecObjectTrouve].insert_many(getDataQuery['records'])
 
 def insertTerMensuelToMongo():
-    getDataQuery = terMensuel(ApiKey, limitData)
+    getDataQuery = terMensuel(ApiKey)
     DBMongo = loadConfigDataBase()
     DBMongo[CollecTer].insert_many(getDataQuery['records'])
 
 def insertTGVMensuelToMongo():
-    getDataQuery = TGVMensuel(ApiKey, limitData)
+    getDataQuery = TGVMensuel(ApiKey)
     DBMongo = loadConfigDataBase()
     DBMongo[CollectTGV].insert_many(getDataQuery['records'])
 
+# vérifie si les collections sont vides sinon les ajoutent dans le cluster Atlas
 if __name__ == '__main__':
     existMontParnasse = CheckCollection[CollecMontParnasse].count_documents({})
     if existMontParnasse == 0:
