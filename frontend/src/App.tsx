@@ -1,12 +1,14 @@
-import { useState } from 'react'
-
+import { Route, Routes } from 'react-router-dom'
+import { Analytic } from './page/Analytic'
+import { Home } from './page/Home'
 
 function App() {
-
+   
   return (
-    <div>
-      hello world
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/analytics" element={<Analytic />} />
+    </Routes>
   )
 }
 
