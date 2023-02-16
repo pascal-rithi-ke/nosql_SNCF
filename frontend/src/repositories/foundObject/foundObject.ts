@@ -10,12 +10,12 @@ export default class FoundObjectRepositories implements IFoundObjectRepositories
 
 	constructor (httpClient: HttpClient) {
 		this.httpClient = httpClient
-		this.baseUrl = "https://data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-restitution&q=&rows=-1"
+		this.baseUrl = "https://data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-restitution&q=&rows=3"
 	}
 
 	async getFoundObject(): Promise<FoundObject[]> {
-		const foundObjectData = await this.httpClient.get(`${this.baseUrl}`) ?? []
-    	return FoundObjectMapper.toFoundObjectDomain(foundObjectData.data);
+		const foundObjectData = await this.httpClient.get(`${this.baseUrl}`)
+    return FoundObjectMapper.toFoundObjectDomain(foundObjectData.records);
 	}
 
 	static getInstance(httpClient: HttpClient) {

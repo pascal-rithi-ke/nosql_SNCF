@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
-import Axios from "../../../infra/http/Axios"
+import { output } from "../../../infra/http/output"
 import FoundObjectRepositories from "../../../repositories/foundObject/foundObject"
 
 
 const getFoundObject = () => {
-  const foundObject = FoundObjectRepositories.getInstance(new Axios())
-  const request = async () => await foundObject.getFoundObject()
+  const foundObjectRepositories = FoundObjectRepositories.getInstance(output)
 
-  return useQuery(["foundObject"], request)
+  return useQuery(["foundObject"], async () => await foundObjectRepositories.getFoundObject())
 }
 export default getFoundObject
