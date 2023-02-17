@@ -1,4 +1,5 @@
 import { BarChart } from "../components/BarChart";
+import { BarChartn2 } from "../components/BarChartn2";
 import { BarHorizotal } from "../components/BarHorizotal";
 import { DoughnutChart } from "../components/DoughnutChart";
 import { LineChart } from "../components/LineChart";
@@ -9,6 +10,7 @@ export const Analytic = () => {
   return (
     <>
       <NavBar />
+      <h1>Analytic</h1>
       <div style={{ maxWidth: 700 }}>
         <BarChart  />
       </div>
@@ -21,14 +23,9 @@ export const Analytic = () => {
       <div style={{ maxWidth: 700 }}>
         <BarHorizotal  />
       </div>
-      <h1>Analytic</h1>
-      <p>Nombre d'object trouver : 3535</p>
-      <p>Nombre d'object Restitué : 1200</p>
-      <p>Nombre d'object le matin : 650</p>
-      <p>Nombre d'object le soir : 4500</p>
-      <p>Top 5 gare avec le plus d'object trouver :</p>
-      <p>Tours: 40</p>
-      <p>Strasbourg: 30</p>
+      <div style={{ maxWidth: 700 }}>
+        <BarChartn2  />
+      </div>
     </>
   )
 }

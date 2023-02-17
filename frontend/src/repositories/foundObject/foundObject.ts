@@ -10,7 +10,7 @@ export default class FoundObjectRepositories implements IFoundObjectRepositories
 
 	constructor (httpClient: HttpClient) {
 		this.httpClient = httpClient
-		this.baseUrl = "https://data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-restitution&q=&rows=3"
+		this.baseUrl = "https://data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-restitution&q=&rows=50"
 	}
 
 	async getFoundObject(page: number): Promise<FoundObject[]> {
