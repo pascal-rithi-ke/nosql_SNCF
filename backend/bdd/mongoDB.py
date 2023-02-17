@@ -9,7 +9,7 @@ ApiKey = os.getenv('ApiKey')
 CheckCollection = loadConfigDataBase()
 
 CollecMontParnasse = "MontParnasse"
-CollecObjectTrouve = "object_trouve"
+CollecObjectTrouve = "objet_trouve"
 CollecTer = "ter"
 CollectTGV = "tgv"
 
