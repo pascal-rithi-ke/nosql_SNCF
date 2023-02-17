@@ -37,16 +37,26 @@ const options = {
   },
 };
 
+const data_objet = {
+  "results" : [
+    {"_id": "nombre_objets_restitues", "count": 3779},
+    {"_id": "nombre_objets_trouves", "count": 10000},
+  ]
+}
+
+const lab = data_objet.results.map((el) => el._id)
+const count = data_objet.results.map((el) => el.count)
+
 export function BarHorizotal() {
   
-  const labels = ["Object trouver", "Object Restitué"];
+  const labels = lab;
   
    const data = {
     labels,
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => Math.floor(Math.random() * (1000000 - 1000 + 1) + 1000)),
+        data: count,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },

@@ -40,10 +40,13 @@ export const options = {
   },
 };
 
+const data_objet = {"results":[{"_id":"Paris Gare de Lyon","count":794},{"_id":"Paris Montparnasse","count":687},{"_id":"Paris Gare du Nord","count":620},{"_id":"Bordeaux Saint-Jean","count":489},{"_id":"Strasbourg","count":430}]}
 
+const lab = data_objet.results.map((el) => el._id)
+const count = data_objet.results.map((el) => el.count)
 
 export function BarChart() {
-  const labels = ['Tours', 'Strasbourg', 'Monparnass'];
+  const labels = lab;
   let min = 100;
   let max = 1000;
 
@@ -52,7 +55,7 @@ export function BarChart() {
     datasets: [
       {
         label: 'Object trouvé',
-        data: labels.map(() => Math.floor(Math.random() * (max - min + 1) + min)),
+        data: count,
         backgroundColor: 'rgb(255, 99, 132)',
         stack: 'Stack 0',
       },

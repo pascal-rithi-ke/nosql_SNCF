@@ -3,6 +3,8 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const data_objet = {"results":[{"_id":"matin","nb_objets_trouves":5442}, {"_id":"apres-midi","nb_objets_trouves":4558}]}
+
 export const options = {
   responsive: true,
   plugins: {
@@ -24,7 +26,7 @@ export function DoughnutChart() {
     datasets: [
       {
         label: 'objet',
-        data: [460, 760],
+        data: [data_objet.results[0].nb_objets_trouves, data_objet.results[1].nb_objets_trouves],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',

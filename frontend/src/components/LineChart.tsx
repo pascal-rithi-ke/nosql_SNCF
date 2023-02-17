@@ -33,17 +33,20 @@ export const options = {
   },
 };
 
+const data_objet = [ {'_id': 2018, 'nb': 4675}, {'_id': 2019, 'nb': 5325}]
 
+const lab = data_objet.map(el => el._id)
+const count = data_objet.map(el => el.nb)
 
 export function LineChart() {
-  const labels = ['2018', '2019', '2020', '2021', '2022', '2023'];
+  const labels = lab;
 
   const data = {
     labels,
     datasets: [
       {
         label: 'Object trouvé',
-        data: labels.map(() => Math.floor(Math.random() * (1000000 - 1000 + 1) + 1000)),
+        data: count,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
