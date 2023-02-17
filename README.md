@@ -7,4 +7,4 @@ Pour exécuter les reqêtes, on exécute le fichier app.py et on récupère le r
 
 Lien du trello : https://trello.com/b/vbNwdotT/planning-tp
 
-PowerPoint présent à la racine du projet : ApiSNCF.ppx
+PowerPoint présent à la racine du projet : ApiSncf.pptx
